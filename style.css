@@ -1,3 +1,20 @@
+:root {
+  --neutral-black: #353839;
+  --neutral-grey: #444747;
+  --accent-peach: #fc5c7d;
+
+  --surface-square: var(--accent-peach);
+  --border-primary: var(--neutral-black);
+  --container-width: 1000px;
+  --container-height: 1000px;
+}
+
+@property --num-of-squares {
+  syntax: "<number>";
+  initial-value: 16;
+  inherits: false;
+}
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -38,5 +55,32 @@ body {
   font-family: "Sora", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  overflow: hidden;
 }
 
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: var(--container-width);
+  height: var(--container-height);
+  display: flex;
+  flex-wrap: wrap;
+  outline: 2px solid var(--border-primary);
+
+  div {
+    border: 1px solid var(--border-primary);
+    width: calc(var(--container-width) / var(--num-of-squares));
+    height: calc(var(--container-height) / var(--num-of-squares));
+    box-sizing: border-box;
+  }
+
+  div.hovered {
+    background: var(--surface-square);
+  }
+}
