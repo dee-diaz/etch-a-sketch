@@ -71,7 +71,7 @@ body {
   height: var(--container-height);
   display: flex;
   flex-wrap: wrap;
-  outline: 2px solid var(--border-primary);
+  outline: 1px solid var(--border-primary);
 
   div {
     border: 1px solid var(--border-primary);
