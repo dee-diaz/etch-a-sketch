@@ -6,7 +6,7 @@ const DEFAULT = {
 const container = document.querySelector(".container");
 const btnReset = document.querySelector(".btn-reset");
 const input = document.querySelector("#user-input");
-let userInput;
+let hue = 0;
 
 function createGrid(numOfSquares) {
   if (
@@ -17,8 +17,8 @@ function createGrid(numOfSquares) {
       `The number should be less than ${DEFAULT.MAX_SQUARES} and greater than ${DEFAULT.MIN_SQUARES}`
     );
     return;
-  } else if (typeof numOfSquares !== "number") {
-    alert("Wrong data type. Enter a number");
+  } else if (!Number.isInteger(numOfSquares)) {
+    alert("Please enter a valid integer");
     return;
   }
 
@@ -36,17 +36,18 @@ function deletePreviousGrid() {
 }
 
 function addColoredClass(e) {
-  e.target.classList.add("hovered");
+  e.target.style.backgroundColor = `hsl(${hue}, 96%, 67%)`;
+  hue = (hue + 1) % 361;
 }
 
 function removeColoredClass() {
   const divs = container.querySelectorAll("div");
-  divs.forEach((div) => div.classList.remove("hovered"));
+  divs.forEach((div) => div.style.removeProperty("background-color"));
 }
 
 function handleUserInput(e) {
   e.preventDefault();
-  userInput = parseInt(e.target[0].value);
+  let userInput = parseInt(e.target[0].value);
   deletePreviousGrid();
   createGrid(userInput);
 }

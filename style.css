@@ -2,9 +2,7 @@
   --neutral-black: #353839;
   --neutral-grey: #444747;
   --neutral-off-white: #f1f1f1;
-  --accent-peach: #fc5c7d;
 
-  --surface-square: var(--accent-peach);
   --border-primary: var(--neutral-black);
   --container-size: 1000px;
 }
@@ -54,7 +52,6 @@ body {
   font-family: "Sora", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  overflow: hidden;
 }
 
 .main {
@@ -63,7 +60,7 @@ body {
   justify-content: space-between;
   align-items: center;
   max-width: 82rem;
-  height: 100vh;
+  min-height: 100vh
 }
 
 .container {
@@ -72,16 +69,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   outline: 1px solid var(--border-primary);
+  background-color: #fff !important;
 
   div {
     border: 1px solid var(--border-primary);
     width: calc(var(--container-size) / var(--num-of-squares));
     height: calc(var(--container-size) / var(--num-of-squares));
     box-sizing: border-box;
-  }
-
-  div.hovered {
-    background: var(--surface-square);
   }
 }
 
