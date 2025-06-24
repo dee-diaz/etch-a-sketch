@@ -1,17 +1,16 @@
 :root {
   --neutral-black: #353839;
   --neutral-grey: #444747;
+  --neutral-off-white: #f1f1f1;
   --accent-peach: #fc5c7d;
 
   --surface-square: var(--accent-peach);
   --border-primary: var(--neutral-black);
-  --container-width: 1000px;
-  --container-height: 1000px;
+  --container-size: 1000px;
 }
 
 @property --num-of-squares {
   syntax: "<number>";
-  initial-value: 16;
   inherits: false;
 }
 
@@ -59,28 +58,105 @@ body {
 }
 
 .main {
+  margin-inline: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  max-width: 82rem;
   height: 100vh;
 }
 
 .container {
-  width: var(--container-width);
-  height: var(--container-height);
+  width: var(--container-size);
+  height: var(--container-size);
   display: flex;
   flex-wrap: wrap;
   outline: 1px solid var(--border-primary);
 
   div {
     border: 1px solid var(--border-primary);
-    width: calc(var(--container-width) / var(--num-of-squares));
-    height: calc(var(--container-height) / var(--num-of-squares));
+    width: calc(var(--container-size) / var(--num-of-squares));
+    height: calc(var(--container-size) / var(--num-of-squares));
     box-sizing: border-box;
   }
 
   div.hovered {
     background: var(--surface-square);
   }
+}
+
+.input-select {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 6rem;
+
+  label {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+}
+
+.input-select > form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input {
+  height: 3.063rem;
+  width: 9rem;
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  border: 2px solid var(--border-primary);
+  background-color: var(--neutral-off-white);
+  padding: 0.75rem;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+input:hover {
+  background-color: var(--neutral-off-white);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  background-color: var(--neutral-black);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.063rem;
+  height: 3.063rem;
+}
+
+.btn-reset {
+  width: 12.5rem;
+  padding: 1rem;
+  font-size: 1.125rem;
+  text-align: center;
+  color: #fff;
+}
+
+button:hover {
+  background-color: var(--neutral-grey);
+}
+
+.btn-reset:active {
+  transform: scale(0.98);
 }

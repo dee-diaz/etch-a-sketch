@@ -14,6 +14,35 @@
   </head>
   <body>
     <div class="main">
+      <div class="settings">
+        <div class="input-select">
+          <label for="grid-size">Select the grid size</label>
+          <form id="user-input">
+            <input
+              name="grid-size"
+              type="number"
+              id="grid-size"
+              placeholder="10 to 100"
+            />
+            <button class="btn-select" type="submit">
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.276 23.6093L21.8853 16L14.276 8.39062L12.3906 10.276L18.1146 16L12.3906 21.724L14.276 23.6093Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+          </form>
+
+        </div>
+        <button class="btn-reset">Reset</button>
+      </div>
       <div class="container"></div>
     </div>
     <script src="script.js"></script>
